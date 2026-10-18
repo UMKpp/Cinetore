@@ -1,0 +1,594 @@
+/* Shared navigation (Fixed colors in both Dark and Light Mode) */
+
+.cinetore-navbar,
+body.light-mode .cinetore-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    min-height: var(--navbar-height);
+    margin-bottom: 0;
+    padding: 0 20px;
+    background-color: var(--navbar-bg) !important;
+    color: var(--navbar-text) !important;
+    border: none;
+    border-radius: 0;
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+}
+
+.cinetore-logo,
+body.light-mode .cinetore-logo,
+body.light-mode .cinetore-navbar .cinetore-logo {
+    padding: 0;
+    color: var(--navbar-text) !important;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: var(--navbar-height);
+    letter-spacing: 0.5px;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.cinetore-logo:hover,
+.cinetore-logo:focus,
+body.light-mode .cinetore-logo:hover,
+body.light-mode .cinetore-logo:focus,
+body.light-mode .cinetore-navbar .cinetore-logo:hover,
+body.light-mode .cinetore-navbar .cinetore-logo:focus {
+    color: var(--navbar-text) !important;
+    opacity: 0.8;
+}
+
+.cinetore-navbar .navbar-nav>li>a,
+body.light-mode .cinetore-navbar .navbar-nav>li>a {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    color: var(--navbar-text) !important;
+    font-size: 15px;
+    background-color: transparent !important;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.cinetore-navbar .navbar-nav>li>a:hover,
+.cinetore-navbar .navbar-nav>li>a:focus,
+body.light-mode .cinetore-navbar .navbar-nav>li>a:hover,
+body.light-mode .cinetore-navbar .navbar-nav>li>a:focus {
+    color: var(--navbar-text-hover) !important;
+    background-color: var(--navbar-hover-bg) !important;
+}
+
+.cinetore-navbar .navbar-nav>.active>a,
+.cinetore-navbar .navbar-nav>.active>a:hover,
+.cinetore-navbar .navbar-nav>.active>a:focus,
+body.light-mode .cinetore-navbar .navbar-nav>.active>a,
+body.light-mode .cinetore-navbar .navbar-nav>.active>a:hover,
+body.light-mode .cinetore-navbar .navbar-nav>.active>a:focus {
+    color: var(--navbar-text) !important;
+    background-color: var(--navbar-active-bg) !important;
+}
+
+.theme-toggle,
+body.light-mode .theme-toggle,
+body.light-mode .cinetore-navbar .theme-toggle {
+    width: 55px;
+    height: var(--navbar-height);
+    border: none;
+    background: transparent !important;
+    color: var(--navbar-text) !important;
+    font-size: 17px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus,
+body.light-mode .theme-toggle:hover,
+body.light-mode .theme-toggle:focus,
+body.light-mode .cinetore-navbar .theme-toggle:hover,
+body.light-mode .cinetore-navbar .theme-toggle:focus {
+    background-color: var(--navbar-hover-bg) !important;
+    color: var(--navbar-text-hover) !important;
+}
+
+.navbar-toggle,
+body.light-mode .navbar-toggle,
+body.light-mode .cinetore-navbar .navbar-toggle {
+    margin-top: 18px;
+    border: none;
+    background: transparent !important;
+}
+
+.navbar-toggle:hover,
+.navbar-toggle:focus,
+body.light-mode .navbar-toggle:hover,
+body.light-mode .navbar-toggle:focus,
+body.light-mode .cinetore-navbar .navbar-toggle:hover,
+body.light-mode .cinetore-navbar .navbar-toggle:focus {
+    background-color: var(--navbar-hover-bg) !important;
+}
+
+.navbar-toggle .icon-bar,
+body.light-mode .navbar-toggle .icon-bar,
+body.light-mode .cinetore-navbar .navbar-toggle .icon-bar {
+    background-color: var(--navbar-text) !important;
+}
+
+@media (min-width: 768px) {
+    .cinetore-navbar .navbar-nav.navbar-right {
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* Global Button System (Identical colors in both Dark and Light Mode) */
+
+.btn-accent,
+body.light-mode .btn-accent {
+    background-color: var(--btn-accent-bg) !important;
+    border: 1px solid var(--btn-accent-border) !important;
+    color: var(--btn-accent-text) !important;
+    font-weight: 600;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-accent:hover,
+.btn-accent:focus,
+body.light-mode .btn-accent:hover,
+body.light-mode .btn-accent:focus {
+    background-color: var(--btn-accent-hover-bg) !important;
+    border-color: var(--btn-accent-hover-border) !important;
+    color: var(--btn-accent-hover-text) !important;
+}
+
+.btn-accent:active,
+.btn-accent.active,
+body.light-mode .btn-accent:active,
+body.light-mode .btn-accent.active {
+    background-color: var(--btn-accent-active-bg) !important;
+    border-color: var(--btn-accent-active-border) !important;
+    color: var(--btn-accent-active-text) !important;
+}
+
+.btn-cinetore,
+body.light-mode .btn-cinetore {
+    background-color: var(--btn-cinetore-bg) !important;
+    border: 1px solid var(--btn-cinetore-border) !important;
+    color: var(--btn-cinetore-text) !important;
+    font-weight: 600;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-cinetore:hover,
+.btn-cinetore:focus,
+body.light-mode .btn-cinetore:hover,
+body.light-mode .btn-cinetore:focus {
+    background-color: var(--btn-cinetore-hover-bg) !important;
+    border-color: var(--btn-cinetore-hover-border) !important;
+    color: var(--btn-cinetore-hover-text) !important;
+}
+
+.btn-cinetore:active,
+.btn-cinetore.active,
+body.light-mode .btn-cinetore:active,
+body.light-mode .btn-cinetore.active {
+    background-color: var(--btn-cinetore-active-bg) !important;
+    border-color: var(--btn-cinetore-active-border) !important;
+    color: var(--btn-cinetore-active-text) !important;
+}
+
+.btn-delete,
+.btn-danger-cinetore,
+body.light-mode .btn-delete,
+body.light-mode .btn-danger-cinetore {
+    background-color: transparent !important;
+    border: 1px solid var(--btn-danger-border) !important;
+    color: var(--btn-danger-text) !important;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-delete:hover,
+.btn-delete:focus,
+.btn-danger-cinetore:hover,
+.btn-danger-cinetore:focus,
+body.light-mode .btn-delete:hover,
+body.light-mode .btn-delete:focus,
+body.light-mode .btn-danger-cinetore:hover,
+body.light-mode .btn-danger-cinetore:focus {
+    background-color: var(--btn-danger-hover-bg) !important;
+    border-color: var(--btn-danger-hover-border) !important;
+    color: var(--btn-danger-hover-text) !important;
+}
+
+/* Floating action button */
+
+.floating-actions {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.floating-cta,
+body.light-mode .floating-cta {
+    display: flex;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid var(--btn-floating-border) !important;
+    border-radius: 22px;
+    background-color: var(--btn-floating-bg) !important;
+    color: var(--btn-floating-text) !important;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    transition: width 0.3s ease, background-color 0.25s ease,
+        border-color 0.25s ease, transform 0.25s ease;
+}
+
+.floating-cta i {
+    flex-shrink: 0;
+    width: 44px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.cta-label {
+    margin-right: 12px;
+    opacity: 0;
+    white-space: nowrap;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.floating-cta.expanded,
+body.light-mode .floating-cta.expanded {
+    width: 145px;
+    border-color: var(--btn-floating-hover-border) !important;
+}
+
+.floating-cta.expanded .cta-label {
+    opacity: 1;
+}
+
+.floating-cta:hover,
+.floating-cta:focus,
+body.light-mode .floating-cta:hover,
+body.light-mode .floating-cta:focus {
+    background-color: var(--btn-floating-hover-bg) !important;
+    border-color: var(--btn-floating-hover-border) !important;
+    color: var(--btn-floating-hover-text) !important;
+    transform: translateY(-2px);
+}
+
+/* Request modal and notification */
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.cinetore-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background-color: var(--overlay);
+}
+
+.cinetore-modal-backdrop[hidden] {
+    display: none;
+}
+
+.cinetore-modal {
+    position: relative;
+    width: min(520px, 100%);
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+    padding: 32px;
+    background-color: var(--surface);
+    border: 1px solid var(--brand-blue);
+    border-radius: 8px;
+    color: var(--primary-text);
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.5);
+}
+
+.cinetore-modal h2 {
+    margin: 0 42px 24px 0;
+    color: var(--primary-text);
+    font-size: 24px;
+}
+
+.modal-close,
+body.light-mode .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 1px solid var(--btn-close-border) !important;
+    border-radius: 50%;
+    background-color: var(--btn-close-bg) !important;
+    color: var(--btn-close-text) !important;
+    font-size: 24px;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.modal-close:hover,
+.modal-close:focus,
+body.light-mode .modal-close:hover,
+body.light-mode .modal-close:focus {
+    border-color: var(--btn-close-hover-border) !important;
+    background-color: var(--btn-close-hover-bg) !important;
+    color: var(--btn-close-hover-text) !important;
+}
+
+.modal-field {
+    margin-bottom: 17px;
+}
+
+.modal-field label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--primary-text);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.modal-field input,
+.modal-field select,
+.modal-field textarea {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--surface-input);
+    color: var(--primary-text);
+    font: inherit;
+}
+
+.modal-field input,
+.modal-field select {
+    height: 42px;
+}
+
+.modal-field textarea {
+    min-height: 96px;
+    resize: vertical;
+}
+
+.modal-field input::placeholder,
+.modal-field textarea::placeholder {
+    color: var(--secondary-text);
+}
+
+.modal-field select option {
+    background: var(--surface-input);
+    color: var(--primary-text);
+}
+
+.modal-field input:focus,
+.modal-field select:focus,
+.modal-field textarea:focus,
+.modal-close:focus,
+.cinetore-modal .btn:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 22px;
+}
+
+.modal-actions .btn {
+    min-width: 150px;
+}
+
+#requestMovieForm .btn-accent {
+    border: 1px solid var(--on-accent);
+}
+
+.modal-message {
+    margin: 16px 0 0;
+    color: var(--accent);
+    font-size: 14px;
+}
+
+.cinetore-notification {
+    position: fixed;
+    top: 86px;
+    left: 50%;
+    z-index: 2100;
+    max-width: calc(100% - 32px);
+    padding: 13px 18px;
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    background: var(--brand-blue);
+    color: #FFFFFF;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    transform: translateX(-50%);
+}
+
+/* Shared footer */
+
+.cinetore-footer {
+    margin-top: 60px;
+    padding: 50px 0 25px;
+    background: var(--footer-background);
+    border-top: 2px solid var(--accent);
+    color: var(--footer-secondary);
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-column {
+    min-height: 150px;
+    padding: 0 30px;
+}
+
+.footer-brand {
+    margin-bottom: 20px;
+    color: var(--footer-primary);
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.footer-contact p {
+    margin: 0 0 12px;
+    color: var(--footer-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-contact i {
+    width: 20px;
+    margin-right: 8px;
+    color: var(--footer-secondary);
+}
+
+.footer-contact a {
+    color: var(--footer-secondary);
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    color: var(--accent);
+}
+
+.footer-heading {
+    margin: 0 0 20px;
+    color: var(--footer-primary);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.footer-links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: var(--footer-secondary);
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    padding-left: 4px;
+    color: var(--accent);
+}
+
+.footer-socials {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 35px;
+}
+
+.footer-socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    color: var(--footer-secondary);
+    text-decoration: none;
+}
+
+.footer-socials a:hover,
+.footer-socials a:focus {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.footer-copyright {
+    color: var(--footer-secondary);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+@media (max-width: 767px) {
+    .cinetore-footer {
+        padding: 40px 0 25px;
+    }
+
+    .footer-column {
+        margin-bottom: 35px;
+        padding: 0 25px;
+    }
+
+    .footer-column:last-child {
+        margin-bottom: 0;
+    }
+
+    .footer-brand {
+        margin-bottom: 18px;
+    }
+
+    .footer-socials {
+        margin-bottom: 25px;
+    }
+
+    .floating-actions {
+        right: 15px;
+        bottom: 15px;
+        gap: 8px;
+    }
+
+    .floating-cta {
+        width: 44px;
+        height: 44px;
+        border-radius: 22px;
+    }
+
+    .floating-cta i {
+        width: 44px;
+    }
+
+    .floating-cta.expanded {
+        width: 145px;
+    }
+
+    .cta-label {
+        margin-right: 12px;
+        font-size: 11px;
+    }
+
+    .cinetore-modal {
+        padding: 26px 20px 22px;
+    }
+
+    .cinetore-modal h2 {
+        font-size: 21px;
+    }
+
+    .modal-actions .btn {
+        width: 100%;
+    }
+
+    .cinetore-notification {
+        top: 78px;
+    }
+}

@@ -1,0 +1,116 @@
+@model IEnumerable<MovieStore.Models.Movie>
+
+@{
+    ViewData["Title"] = "Browse Movies";
+    var currentGenre = ViewBag.CurrentGenre as string ?? "";
+    var genres = new[] { "All", "Action", "Sci-Fi", "Drama", "RomCom", "Animation", "Horror" };
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/genres.css" asp-append-version="true" />
+}
+
+<main class="genre-page">
+    <div class="container">
+
+        <header class="genre-header">
+            <h1>Explore Movies by Genre</h1>
+
+            <div class="genre-filter-bar" role="group" aria-label="Filter movies by genre">
+                @foreach (var g in genres)
+                {
+                    var isActive = (g == "All" && string.IsNullOrEmpty(currentGenre)) || g == currentGenre;
+                    <button type="button"
+                            class="genre-filter-button @(isActive ? "active" : "")"
+                            data-genre="@g"
+                            aria-pressed="@isActive.ToString().ToLower()">
+                        @g
+                    </button>
+                }
+            </div>
+
+            <div style="margin-top:20px;">
+                <form asp-controller="Movies" asp-action="Index" method="get"
+                      style="display:inline-flex;gap:8px;flex-wrap:wrap;justify-content:center;">
+                    <input type="hidden" name="genre" id="genreFilterInput" value="@currentGenre" />
+                    <div class="search-box" style="max-width:340px;height:44px;">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" name="searchString" value="@ViewBag.SearchString"
+                               placeholder="Search movies…" autocomplete="off"
+                               style="flex:1;border:none;outline:none;background:transparent;color:var(--primary-text);font-size:14px;" />
+                    </div>
+                    <button type="submit" class="btn btn-accent" style="height:44px;padding:0 18px;">Search</button>
+                    @if (!string.IsNullOrEmpty(ViewBag.SearchString as string))
+                    {
+                        <a asp-controller="Movies" asp-action="Index"
+                           class="btn btn-cinetore" style="height:44px;line-height:44px;padding:0 14px;">Clear</a>
+                    }
+                </form>
+            </div>
+        </header>
+
+        @if (Model.Any())
+        {
+            <div id="genreMovieGrid" class="genre-movie-grid">
+                @foreach (var movie in Model)
+                {
+                    <div class="genre-movie-column" data-genre="@movie.Genre">
+                        <a asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id" class="movie-card">
+                            <div class="poster-container">
+                                @if (!string.IsNullOrEmpty(movie.PosterUrl))
+                                {
+                                    <img src="@movie.PosterUrl" alt="@movie.Title" class="movie-poster"
+                                         onerror="this.onerror=null;this.src='/images/favicon.png';this.style.objectFit='contain';this.style.padding='20px';" />
+                                }
+                                else
+                                {
+                                    <div class="poster-placeholder">
+                                        <i class="fa-solid fa-film" style="font-size:40px;color:var(--accent);"></i>
+                                    </div>
+                                }
+                                <div class="poster-overlay">
+                                    <div class="play-button">
+                                        <i class="fa-solid fa-play"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id" class="genre-movie-title">
+                            @movie.Title
+                        </a>
+                        <div style="text-align:center;margin-top:4px;">
+                            <span style="font-size:11px;color:var(--secondary-text);">@movie.Genre</span>
+                            &nbsp;
+                            <a asp-controller="Movies" asp-action="Edit" asp-route-id="@movie.Id"
+                               style="font-size:11px;color:var(--accent);text-decoration:none;">Edit</a>
+                            &nbsp;
+                            <a asp-controller="Movies" asp-action="Delete" asp-route-id="@movie.Id"
+                               style="font-size:11px;color:#e57373;text-decoration:none;">Delete</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <p id="genreEmptyState" class="genre-empty-state">
+                No movies found.
+            </p>
+        }
+
+    </div>
+</main>
+
+@section Scripts {
+    <script>
+        // Sync genre filter buttons with the hidden form input so server-side filtering works.
+        document.querySelectorAll('.genre-filter-button').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var g = btn.dataset.genre;
+                var input = document.getElementById('genreFilterInput');
+                if (input) input.value = (g === 'All') ? '' : g;
+            });
+        });
+    </script>
+}

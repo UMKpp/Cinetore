@@ -1,0 +1,121 @@
+/* Variables and global styles */
+
+:root {
+    /* Adaptive Theme Variables (Dark Mode by default) */
+    --background: #070810;
+    --brand-blue: #0F1257;
+    --accent: #8FB3C9;
+    --primary-text: #FFFFFF;
+    --secondary-text: #A1A1AA;
+    --surface: #10121d;
+    --surface-raised: #11131d;
+    --surface-input: #10121d;
+    --border-color: rgba(161, 161, 170, 0.35);
+    --overlay: rgba(7, 8, 16, 0.78);
+    --hover-surface: rgba(255, 255, 255, 0.08);
+    --on-accent: #070810;
+    --footer-background: #070810;
+    --footer-primary: #FFFFFF;
+    --footer-secondary: #A1A1AA;
+    --navbar-height: 70px;
+
+    /* Fixed Navigation Bar Colors (identical in Dark & Light modes) */
+    --navbar-bg: rgba(15, 18, 87, 0.94);
+    --navbar-text: #FFFFFF;
+    --navbar-text-hover: #FFFFFF;
+    --navbar-hover-bg: rgba(255, 255, 255, 0.08);
+    --navbar-active-bg: rgba(255, 255, 255, 0.14);
+
+    /* Fixed Button Colors (identical in Dark & Light modes) */
+    /* 1. Accent Button (Search, Watch Now, Submit Request, Save Changes) */
+    --btn-accent-bg: #8FB3C9;
+    --btn-accent-border: #8FB3C9;
+    --btn-accent-text: #070810;
+    --btn-accent-hover-bg: #FFFFFF;
+    --btn-accent-hover-border: #8FB3C9;
+    --btn-accent-hover-text: #070810;
+    --btn-accent-active-bg: #7fa0b4;
+    --btn-accent-active-border: #7fa0b4;
+    --btn-accent-active-text: #070810;
+
+    /* 2. Cinetore / Secondary Button (Download, Edit, Cancel, Back, Clear) */
+    --btn-cinetore-bg: #0F1257;
+    --btn-cinetore-border: #0F1257;
+    --btn-cinetore-text: #FFFFFF;
+    --btn-cinetore-hover-bg: #8FB3C9;
+    --btn-cinetore-hover-border: #8FB3C9;
+    --btn-cinetore-hover-text: #070810;
+    --btn-cinetore-active-bg: #0d104a;
+    --btn-cinetore-active-border: #0d104a;
+    --btn-cinetore-active-text: #FFFFFF;
+
+    /* 3. Genre Filter Buttons */
+    --btn-filter-bg: #10121d;
+    --btn-filter-border: #0F1257;
+    --btn-filter-text: #FFFFFF;
+    --btn-filter-hover-bg: #10121d;
+    --btn-filter-hover-border: #8FB3C9;
+    --btn-filter-hover-text: #8FB3C9;
+    --btn-filter-active-bg: #0F1257;
+    --btn-filter-active-border: #8FB3C9;
+    --btn-filter-active-text: #FFFFFF;
+
+    /* 4. Floating Action Button */
+    --btn-floating-bg: #0F1257;
+    --btn-floating-border: rgba(161, 161, 170, 0.35);
+    --btn-floating-text: #FFFFFF;
+    --btn-floating-hover-bg: #8FB3C9;
+    --btn-floating-hover-border: #8FB3C9;
+    --btn-floating-hover-text: #070810;
+
+    /* 5. Danger / Delete Buttons */
+    --btn-danger-border: #e57373;
+    --btn-danger-text: #e57373;
+    --btn-danger-hover-bg: #e57373;
+    --btn-danger-hover-border: #e57373;
+    --btn-danger-hover-text: #070810;
+
+    /* 6. Modal Close Button */
+    --btn-close-bg: #10121d;
+    --btn-close-border: #A1A1AA;
+    --btn-close-text: #FFFFFF;
+    --btn-close-hover-bg: #8FB3C9;
+    --btn-close-hover-border: #8FB3C9;
+    --btn-close-hover-text: #070810;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    color: var(--primary-text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Light theme variables (content, background, cards adapt; navbar and buttons remain fixed) */
+
+body.light-mode {
+    --background: #f4f4f5;
+    --brand-blue: #0F1257;
+    --footer-background: #070810;
+    --footer-primary: #FFFFFF;
+    --footer-secondary: #A1A1AA;
+    --primary-text: #111827;
+    --secondary-text: #52525b;
+    --surface: #FFFFFF;
+    --surface-raised: #FFFFFF;
+    --surface-input: #FFFFFF;
+    --border-color: #cbd5e1;
+    --overlay: rgba(15, 18, 87, 0.35);
+    --hover-surface: rgba(15, 18, 87, 0.08);
+    --on-accent: #070810;
+}

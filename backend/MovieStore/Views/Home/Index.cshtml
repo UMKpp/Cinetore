@@ -1,0 +1,85 @@
+@model IEnumerable<MovieStore.Models.Movie>
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+}
+
+<section class="hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Make your day with Cinetore</h1>
+            <p class="hero-subtitle">Discover something worth watching.</p>
+            <div class="search-container">
+                <form asp-controller="Home" asp-action="Index" method="get">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" name="searchString" id="movieSearch"
+                               value="@ViewData["SearchString"]"
+                               placeholder="search movie name" autocomplete="off" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="popular-section" id="movie-section">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Popular Movies</h2>
+        </div>
+
+        @if (Model.Any())
+        {
+            <div class="row popular-movies">
+                @foreach (var movie in Model)
+                {
+                    <div class="col-xs-12 col-sm-4">
+                        <a asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id"
+                           class="movie-card"
+                           data-movie-title="@movie.Title"
+                           data-genre="@movie.Genre">
+                            <div class="poster-container">
+                                @if (!string.IsNullOrEmpty(movie.PosterUrl))
+                                {
+                                    <img src="@movie.PosterUrl" alt="@movie.Title" class="movie-poster"
+                                         onerror="this.onerror=null;this.src='/images/favicon.png';this.style.objectFit='contain';this.style.padding='20px';" />
+                                }
+                                else
+                                {
+                                    <div class="poster-placeholder">
+                                        <i class="fa-solid fa-film" style="font-size:48px;color:var(--accent);"></i>
+                                        <span style="display:block;margin-top:12px;color:var(--secondary-text);font-size:14px;text-align:center;padding:0 12px;">@movie.Title</span>
+                                    </div>
+                                }
+                                <div class="poster-overlay">
+                                    <div class="play-button">
+                                        <i class="fa-solid fa-play"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <div style="text-align:center;margin-top:8px;">
+                            <a asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id"
+                               style="color:var(--primary-text);font-size:13px;font-weight:700;text-decoration:none;">
+                                @movie.Title
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <p class="no-results-message">
+                No movies found.
+            </p>
+        }
+
+        <p id="noMoviesMessage" class="no-results-message" hidden>No movies match your search.</p>
+    </div>
+</section>

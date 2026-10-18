@@ -1,0 +1,256 @@
+/* Movie detail layout */
+
+.movie-page {
+    padding: 42px 0 10px;
+}
+
+.movie-title {
+    margin: 0 0 24px;
+    color: var(--primary-text);
+    font-size: 32px;
+}
+
+.movie-details {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 270px;
+    gap: 42px;
+    align-items: start;
+}
+
+.movie-info {
+    min-width: 0;
+}
+
+.detail-row,
+.movie-description {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 12px;
+    line-height: 1.55;
+}
+
+.detail-label {
+    flex: 0 0 112px;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.detail-value {
+    color: var(--secondary-text);
+}
+
+.movie-description {
+    margin: 20px 0 0;
+}
+
+.movie-description .detail-value {
+    max-width: 760px;
+}
+
+.movie-poster-area {
+    position: sticky;
+    top: 20px;
+}
+
+.movie-poster-area .movie-poster {
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    background: var(--surface-raised);
+    border-radius: 8px;
+}
+
+/* Cast and related movie sections */
+
+.cast-section {
+    margin-top: 26px;
+}
+
+.section-title {
+    margin: 0 0 14px;
+    color: var(--primary-text);
+    font-size: 20px;
+}
+
+.cast-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.cast-card {
+    width: 112px;
+}
+
+.cast-card a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.cast-photo,
+.cast-photo-wrap {
+    width: 112px;
+    height: 132px;
+    border-radius: 6px;
+}
+
+.cast-photo {
+    display: block;
+    object-fit: cover;
+    background: var(--brand-blue);
+}
+
+.cast-photo-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--brand-blue);
+    color: var(--accent);
+}
+
+.cast-photo-wrap .cast-photo {
+    border-radius: 6px;
+}
+
+.cast-name,
+.cast-role {
+    display: block;
+}
+
+.cast-name {
+    margin-top: 7px;
+    color: var(--primary-text);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.cast-role {
+    margin-top: 3px;
+    color: var(--secondary-text);
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+.cast-card a:hover .cast-name {
+    color: var(--accent);
+}
+
+/* Forms and buttons */
+
+.movie-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.movie-actions .btn {
+    flex: 1;
+    min-height: 40px;
+}
+
+.btn-accent,
+body.light-mode .btn-accent {
+    background-color: var(--btn-accent-bg) !important;
+    border-color: var(--btn-accent-border) !important;
+    color: var(--btn-accent-text) !important;
+}
+
+.btn-cinetore,
+body.light-mode .btn-cinetore {
+    background-color: var(--btn-cinetore-bg) !important;
+    border-color: var(--btn-cinetore-border) !important;
+    color: var(--btn-cinetore-text) !important;
+}
+
+/* Movie detail responsive layout */
+
+@media (max-width: 767px) {
+    .movie-page {
+        padding-top: 28px;
+    }
+
+    .movie-title {
+        font-size: 26px;
+    }
+
+    .movie-details {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 24px;
+    }
+
+    .movie-poster-area {
+        position: static;
+        width: min(270px, 100%);
+        margin: 0 auto;
+    }
+
+    .movie-poster-area .movie-poster {
+        height: 360px;
+    }
+
+    .detail-row,
+    .movie-description {
+        display: block;
+    }
+
+    .detail-label {
+        display: block;
+        margin-bottom: 3px;
+    }
+}
+
+.btn-accent:hover,
+.btn-accent:focus,
+body.light-mode .btn-accent:hover,
+body.light-mode .btn-accent:focus {
+    background-color: var(--btn-accent-hover-bg) !important;
+    border-color: var(--btn-accent-hover-border) !important;
+    color: var(--btn-accent-hover-text) !important;
+}
+
+.btn-cinetore:hover,
+.btn-cinetore:focus,
+body.light-mode .btn-cinetore:hover,
+body.light-mode .btn-cinetore:focus {
+    background-color: var(--btn-cinetore-hover-bg) !important;
+    border-color: var(--btn-cinetore-hover-border) !important;
+    color: var(--btn-cinetore-hover-text) !important;
+}
+
+.form-section {
+    margin-top: 32px;
+    padding: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.form-section label {
+    color: var(--primary-text);
+}
+
+.form-control {
+    background-color: var(--surface-input);
+    border-color: var(--border-color);
+    color: var(--primary-text);
+}
+
+.form-control::placeholder {
+    color: var(--secondary-text);
+}
+
+.form-control:focus {
+    background-color: var(--surface-input);
+    border-color: var(--accent);
+    color: var(--primary-text);
+    box-shadow: 0 0 0 2px rgba(143, 179, 201, 0.18);
+}
+
+.form-message {
+    margin-top: 12px;
+    background-color: transparent;
+    border: 0;
+    color: var(--accent);
+}

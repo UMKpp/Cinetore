@@ -1,0 +1,67 @@
+@model MovieStore.Models.Movie
+
+@{
+    ViewData["Title"] = "Delete — " + Model.Title;
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/movie-details.css" asp-append-version="true" />
+}
+
+<div class="movie-page">
+    <div class="container">
+
+        <h2 class="movie-title" style="color:#e57373;">Confirm Delete</h2>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-section">
+
+                    <p style="color:var(--secondary-text);margin-bottom:20px;">
+                        Are you sure you want to permanently remove this movie?
+                    </p>
+
+                    <div class="detail-row">
+                        <span class="detail-label">Title:</span>
+                        <span class="detail-value">@Model.Title</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Genre:</span>
+                        <span class="detail-value">@Model.Genre</span>
+                    </div>
+                    @if (Model.ReleaseYear.HasValue)
+                    {
+                        <div class="detail-row">
+                            <span class="detail-label">Year:</span>
+                            <span class="detail-value">@Model.ReleaseYear</span>
+                        </div>
+                    }
+                    <div class="detail-row">
+                        <span class="detail-label">Price:</span>
+                        <span class="detail-value">$@Model.Price.ToString("F2")</span>
+                    </div>
+
+                    <form asp-action="Delete" method="post" style="margin-top:24px;">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="movie-actions">
+                            <input type="submit" value="Yes, Delete" class="btn btn-delete" style="flex:1;" />
+                            <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-cinetore" style="flex:1;text-align:center;">
+                                Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            @if (!string.IsNullOrEmpty(Model.PosterUrl))
+            {
+                <div class="col-md-4 col-md-offset-1">
+                    <img src="@Model.PosterUrl" alt="@Model.Title"
+                         style="width:100%;max-width:220px;border-radius:8px;object-fit:cover;margin-top:20px;opacity:0.6;"
+                         onerror="this.style.display='none';" />
+                </div>
+            }
+        </div>
+
+    </div>
+</div>
