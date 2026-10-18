@@ -3150,11 +3150,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Documents\\MovieStore\\backend\\MovieStore\\MovieStore.csproj",
+      "projectUniqueName": "C:\\Documents\\Github\\Cinetore\\backend\\MovieStore\\MovieStore.csproj",
       "projectName": "MovieStore",
-      "projectPath": "C:\\Documents\\MovieStore\\backend\\MovieStore\\MovieStore.csproj",
+      "projectPath": "C:\\Documents\\Github\\Cinetore\\backend\\MovieStore\\MovieStore.csproj",
       "packagesPath": "C:\\Users\\upumk\\.nuget\\packages\\",
-      "outputPath": "C:\\Documents\\MovieStore\\backend\\MovieStore\\obj\\",
+      "outputPath": "C:\\Documents\\Github\\Cinetore\\backend\\MovieStore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
